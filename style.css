@@ -1,5 +1,21 @@
 :root {
-    --box-size: 1.7em;
+    --box-size: 40pt;
+    --font-size: 20pt;
+}
+
+div {
+    width: calc(var(--box-size) * 20);
+    position: absolute;
+    left: 10pt;
+    padding: 0px 0px 0px 0px;
+}
+
+#total {
+    display: block;
+    margin-top: 0.5em;
+    font-size: 1.5em;
+    position: absolute;
+    right: var(--box-size);
 }
 
 td {
@@ -7,16 +23,17 @@ td {
     border-color: black;
     border-style: solid;
     width: var(--box-size);
+    height: var(--box-size);
     margin: 0px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
-    height: var(--box-size);
     text-align: center;
-    font-size: calc(var(--box-size) * 0.95);
+    font-size: var(--font-size);
 }
 
 textarea {
-    width: calc(var(--box-size) * 40);
+    width: calc(var(--box-size) * 19);
     margin: auto;
+    margin-left: 5pt;
     align-self: center;
     height: calc(var(--box-size) * 5);
     margin-bottom: calc(var(--box-size) * 2);
@@ -38,8 +55,6 @@ td:last-child {
 
 table {
     table-layout: fixed;
-    width: calc(var(--box-size) * 20);
     border-collapse: collapse;
     padding: 0px 0px 0px 0px;
-    overflow: scroll;
 }
