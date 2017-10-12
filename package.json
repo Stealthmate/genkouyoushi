@@ -1,0 +1,23 @@
+{
+  "name": "genkouyoushi",
+  "version": "1.0.0",
+  "description": "Genkouyoushi server",
+  "main": "sever.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stealthmate/genkouyoushi.git"
+  },
+  "author": "Stealthmate",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/Stealthmate/genkouyoushi/issues"
+  },
+  "homepage": "https://github.com/Stealthmate/genkouyoushi#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "minimist": "^1.2.0"
+  }
+}
