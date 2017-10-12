@@ -1,0 +1,28 @@
+<html ng-app="genkouyoushi">
+
+<head>
+    <title>原稿用紙</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body ng-controller="MyCtrl" ng-init="text='ここにテキストを入れると\n原稿が出てきます。'">
+
+    <h1 align="center">原稿用紙</h1>
+
+    <textarea type="text" ng-model="text"></textarea>
+
+    <table>
+        <tr ng-repeat="subtext in masurange(text) track by $index">
+            <td ng-repeat="c in subtext track by $index">
+                {{c}}
+            </td>
+            <td> {{($index + 1) * 20}} </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
