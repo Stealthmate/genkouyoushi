@@ -11,17 +11,24 @@ const ARGS = parseArgs(process.argv.slice(2), {
     alias: aliases
 });
 
+const CONTENT = [
+    "script.js",
+    "style.css",
+    "github.png"
+]
+
 app.get("/", (req, res) => {
     res.sendFile(appDir + "/index.html")
 })
 
-app.get("/script.js", (req, res) => {
-    res.sendFile(appDir + "/script.js")
-})
-
-app.get("/style.css", (req, res) => {
-    res.sendFile(appDir + "/style.css")
-})
+for (f of CONTENT) {
+    (fname => {
+        app.get("/" + fname, (req, res) => {
+            console.log(fname)
+            res.sendFile(appDir + "/" + fname);
+        })
+    })(f);
+}
 
 const PORT = process.env.PORT || ARGS.port || 80;
 
