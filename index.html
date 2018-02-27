@@ -1,7 +1,9 @@
 <html ng-app="genkouyoushi">
 
 <head>
+	<meta charset="UTF-8">
 	<title>原稿用紙</title>
+
 	<link rel="stylesheet" type="text/css" href="./style.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
@@ -10,33 +12,34 @@
 
 <body ng-controller="MyCtrl" ng-init="text='ここにテキストを入れると原稿が出てきます。Romajiにも対応しています。'">
 
-	<h1 align="center">原稿用紙</h1>
+	<header>
+		<h1>原稿用紙</h1>
+	</header>
 
-	<textarea type="text" ng-model="text"></textarea>
+	<main>
+		<textarea type="text" ng-model="text"></textarea>
+		<section>
+			<table>
+				<tr ng-repeat="subtext in formattedText track by $index">
+					<td ng-repeat="c in subtext track by $index">
+						{{c}}
+					</td>
+					<td> {{($index + 1) * 20}} </td>
+				</tr>
+			</table>
 
-	<section>
-		<table>
-			<tr ng-repeat="subtext in formattedText track by $index">
-				<td ng-repeat="c in subtext track by $index">
-					{{c}}
-				</td>
-				<td> {{($index + 1) * 20}} </td>
-			</tr>
-		</table>
+			<span id="totalMasu" ng-show="text.length > 0">{{masuCount}} / {{formattedText.length * 20}} マス</span>
+			<span id="totalChar" ng-show="text.length > 0">{{charCount}} 文字</span>
 
-		<div id="total" ng-show="text.length > 0">
-			<p>{{masuCount}} / {{formattedText.length * 20}} マス</p>
-			<p>{{charCount}} 文字</p>
+			<span id="hint" ng-show="text.length == 0">テキストを入れてください</span>
+		</section>
 
-		</div>
-		<span id="hint" ng-show="text.length == 0">テキストを入れてください</span>
-	</section>
-
+	</main>
 	<footer>
-		<div>
-			<span>© 2017 Created by Stealthmate</span>
-			<a href="https://github.com/stealthmate/genkouyoushi" target="_blank"><img src="./github.png" alt="Github link"></img></a>
-		</div>
+		<span id="crnotice">© 2018 Created by Stealthmate</span>
+		<a id="githublnk" href="https://github.com/stealthmate/genkouyoushi" target="_blank">
+			<img src="./github.png" alt="Github link"/>
+		</a>
 	</footer>
 </body>
 
