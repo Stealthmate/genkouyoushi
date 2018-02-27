@@ -21,6 +21,7 @@ body {
 }
 
 header {
+    margin: 10pt 0pt 7pt 0pt;
     overflow: hidden;
     flex-grow: 0;
     flex-shrink: 0;
